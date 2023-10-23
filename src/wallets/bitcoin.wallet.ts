@@ -38,7 +38,7 @@ class BitcoinWallet extends WalletBase {
 
   async getBalance(): Promise<number> {
     try {
-      const balanceInfo = await axios.get(`${this.networkConfig.balanceURL}/address/${this.wallet.address}`);
+      const balanceInfo = await axios.get(`${this.networkConfig.serviceURL}/address/${this.wallet.address}`);
       const satoshis = parseInt(balanceInfo.data['chain_stats']['funded_txo_sum']);
       const balanceBTC = satoshis / 1e8; // Convert from satoshis to BTC
       return balanceBTC;
@@ -57,7 +57,7 @@ class BitcoinWallet extends WalletBase {
         networkConfig: this.networkConfig,
       });
 
-      const transaction = await broadcastBitcoinTransaction(txHex, this.networkConfig.balanceURL);
+      const transaction = await broadcastBitcoinTransaction(txHex, this.networkConfig.serviceURL);
 
       return transaction;
     } catch (error) {

@@ -5,7 +5,7 @@ export enum BlockChainNetwork {
 
 export type ChainNetworkConfig = {
   network: BlockChainNetwork;
-  balanceURL: string;
+  serviceURL: string;
   confirmationTarget: number;
 };
 

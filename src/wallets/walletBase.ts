@@ -25,7 +25,7 @@ abstract class WalletBase {
   abstract createNewWallet(): void;
 
   // Common method to get the wallet's balance
-  abstract getBalance(): Promise<number>;
+  abstract getBalance(): Promise<number | string>;
 
   // Common method to send funds to another address
   abstract sendFunds(toAddress: string, amount: number): Promise<string | null>;

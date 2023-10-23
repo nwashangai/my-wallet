@@ -1,5 +1,13 @@
 import { ChainNetworkConfig } from '../config/types';
 
+export type TETHTransaction = {
+  from: string;
+  to: string;
+  value: string;
+  gas?: bigint;
+  gasPrice?: bigint;
+};
+
 export type Wallet = {
   address: string;
   privateKey: string;

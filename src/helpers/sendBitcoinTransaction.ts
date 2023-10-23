@@ -18,7 +18,7 @@ export const createBitcoinTransaction = async ({ privateKeyWIF, toAddress, amoun
 
     const txBuilder = new bitcoin.TransactionBuilder(bitcoinNetwork);
     const { address } = bitcoin.payments.p2pkh({ pubkey: keyPair.publicKey, network: bitcoinNetwork });
-    const response = await axios.get(`${networkConfig.balanceURL}/address/${address}/utxo`);
+    const response = await axios.get(`${networkConfig.serviceURL}/address/${address}/utxo`);
     const utxos = response.data;
 
     // Add UTXOs as inputs to the transaction
