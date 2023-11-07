@@ -10,8 +10,6 @@ class EtheriumWallet extends WalletBase {
   constructor({ wallet, network }: WalletOptions) {
     super({ wallet });
     this.networkConfig = network;
-    console.log(network.serviceURL);
-
     this.web3 = new Web3(network.serviceURL);
 
     if (wallet) {
@@ -60,7 +58,6 @@ class EtheriumWallet extends WalletBase {
         this.web3.eth
           .sendSignedTransaction(signedTnx.rawTransaction)
           .on('receipt', receipt => {
-            console.log(receipt);
             resolve(receipt);
           })
           .on('error', error => {

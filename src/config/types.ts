@@ -7,6 +7,8 @@ export type ChainNetworkConfig = {
   network: BlockChainNetwork;
   serviceURL: string;
   confirmationTarget: number;
+  contractAddress?: string;
+  tokenContractABI?: any;
 };
 
 export type CryptoConfigType = {
